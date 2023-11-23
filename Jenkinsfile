@@ -16,15 +16,15 @@ pipeline {
         kind: Pod
         spec:
           containers:
-         - name: kubectl
-          image: joshendriks/alpine-k8s
-    command:
-    - /bin/cat
-    tty: true 
+          - name: kubectl
+            image: joshendriks/alpine-k8s
+            command:
+            - /bin/cat
+            tty: true 
           - name: docker
             image: docker:latest
             command:
-            - cat
+            - /bin/cat
             tty: true
             volumeMounts:
              - mountPath: /var/run/docker.sock
