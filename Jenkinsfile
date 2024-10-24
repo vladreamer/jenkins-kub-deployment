@@ -17,7 +17,7 @@ pipeline {
         spec:
           containers:
           - name: kubectl
-            image: joshendriks/alpine-k8s
+            image: alpine/k8s:1.28.14
             command:
             - /bin/cat
             tty: true 
