@@ -80,17 +80,26 @@ pipeline {
     //    }
     //  }
     //}
-    stage('Deploy App to Kubernetes') {     
-      steps {
-        container('kubectl') {
-          withCredentials([string(credentialsId: 'mykubeconfig', variable: 'service-reader')]) {
-            sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
-            sh 'kubectl apply -f myweb.yaml'
-          }
-        }
-      }
-    }   
-    
+
+      
+    //stage('Deploy App to Kubernetes') {     
+     // steps {
+       // container('kubectl') {
+         // withCredentials([string(credentialsId: 'mykubeconfig', variable: 'service-reader')]) {
+           // sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
+           // sh 'kubectl apply -f myweb.yaml'
+         // }
+       // }
+     // }
+    //}   
+
+   stage('Deploying container to Kubernetes') {
+     steps {
+        script {
+          kubernetesDeploy(configs: "myweb.yaml") 
+                }
+           }
+    }
   }  
     post {
       always {
