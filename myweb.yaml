@@ -5,7 +5,7 @@ metadata:
   labels:
     app: myweb
   name: myweb
-  namespace: default
+
 spec:
   replicas: 1
   selector:
@@ -28,7 +28,7 @@ metadata:
   labels:
     app: myweb
   name: myweb
-  namespace: default
+
 spec:
   ports:
   - nodePort: 32223
