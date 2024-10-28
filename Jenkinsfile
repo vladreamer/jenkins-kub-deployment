@@ -83,7 +83,7 @@ pipeline {
     stage('Deploy App to Kubernetes') {     
       steps {
         container('kubectl') {
-          withCredentials([string(credentialsId: 'mykubeconfig', variable: 'kubernetes_cluster_access')]) {
+          withCredentials([string(credentialsId: 'mykubeconfig', variable: 'jenkins')]) {
             sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
             sh 'kubectl apply -f myweb.yaml'
           }
