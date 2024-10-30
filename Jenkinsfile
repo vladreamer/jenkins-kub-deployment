@@ -23,9 +23,8 @@ pipeline {
             tty: true 
           - name: docker
             image: docker:latest
-            command:
-            - /bin/cat
-            command: ["apk upgrade --no-cache"]
+            command: ["/bin/cat"]
+            args: ["/etc/debian_version"]
             tty: true
             volumeMounts:
              - mountPath: /var/run/docker.sock
