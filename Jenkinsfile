@@ -25,6 +25,7 @@ pipeline {
             image: docker:latest
             command:
             - /bin/cat
+            command: ["apk upgrade --no-cache"]
             tty: true
             volumeMounts:
              - mountPath: /var/run/docker.sock
