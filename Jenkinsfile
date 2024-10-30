@@ -20,6 +20,7 @@ pipeline {
             image: alpine/k8s:1.28.15
             command:
             - /bin/cat
+            - apk add git
             tty: true 
           - name: docker
             image: docker:latest
