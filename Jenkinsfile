@@ -19,7 +19,6 @@ pipeline {
           - name: kubectl
             image: alpine/k8s:1.28.15
             command:
-      //    - /bin/cat
             - /bin/sh
             - "-c"
             - "apk add git"
