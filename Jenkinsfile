@@ -23,8 +23,7 @@ pipeline {
             tty: true 
           - name: docker
             image: docker:latest
-            command: ["uname"]
-            args: ["-a"]
+            command: ["uname -a"]
             tty: true
             volumeMounts:
              - mountPath: /var/run/docker.sock
