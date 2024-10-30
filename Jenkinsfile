@@ -41,6 +41,7 @@ pipeline {
       steps { 
         echo 'Checkout..'
         container('docker') {
+        sh "apk add --no-cache git"
         git branch: 'main',
                 url: 'https://github.com/vladreamer/jenkins-kub-deployment.git'
 
