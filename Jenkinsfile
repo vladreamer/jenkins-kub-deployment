@@ -24,7 +24,6 @@ pipeline {
           - name: docker
             image: docker:latest
             command: ["/bin/cat"]
-            args: ["/etc/debian_version"]
             tty: true
             volumeMounts:
              - mountPath: /var/run/docker.sock
