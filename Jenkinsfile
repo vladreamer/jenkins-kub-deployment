@@ -19,14 +19,14 @@ pipeline {
           - name: kubectl
             image: alpine/k8s:1.28.15
             command:
-            - /bin/sh
-            - "-c"
-            - "apk add git"
+            - /bin/cat
             tty: true 
           - name: docker
             image: docker:latest
             command:
-            - /bin/cat
+            - /bin/sh
+            - "-c"
+            - "apk add git"
             tty: true
             volumeMounts:
              - mountPath: /var/run/docker.sock
