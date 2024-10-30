@@ -24,9 +24,7 @@ pipeline {
           - name: docker
             image: docker:latest
             command:
-            - /bin/sh
-            - "-c"
-            - "apk add git"
+            - /bin/cat
             tty: true
             volumeMounts:
              - mountPath: /var/run/docker.sock
